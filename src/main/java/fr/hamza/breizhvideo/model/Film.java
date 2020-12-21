@@ -1,5 +1,8 @@
 package fr.hamza.breizhvideo.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,9 +30,7 @@ public class Film {
     @JoinTable(name="film_actor", joinColumns = @JoinColumn(name="film_id"), inverseJoinColumns = @JoinColumn(name = "actor_id"))
     private List<Actor> filmActor;
 
-    @OneToMany(cascade = CascadeType.DETACH)
-    @JoinTable(name="preference", joinColumns = @JoinColumn(name="film_id"))
-    private List<Preference> preference;
+
 
 }
 

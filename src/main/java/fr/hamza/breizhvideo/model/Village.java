@@ -20,8 +20,4 @@ public class Village {
 
     private String postalCode;
 
-    @OneToMany
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    @JoinTable(name="shows")
-    private List<Show> showList;
 }

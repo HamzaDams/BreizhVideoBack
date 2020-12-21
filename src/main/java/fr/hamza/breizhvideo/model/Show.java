@@ -1,5 +1,9 @@
 package fr.hamza.breizhvideo.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,10 +20,13 @@ public class Show {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="release_date")
-    private Date releaseDate;
 
-    @OneToMany(cascade = CascadeType.DETACH)
-    @JoinTable(name="preference", joinColumns = @JoinColumn(name="show_id"))
-    private List<Preference> preference;
+    @Column(name="release_date")
+    private String releaseDate;
+
+    @ManyToOne @JoinColumn(name = "village_id")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
+    private Village village;
+
 }
