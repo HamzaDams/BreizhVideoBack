@@ -31,7 +31,7 @@ public class ShowServiceImpl implements ShowService{
     }
 
     @Override
-    public Show saveOrUpdate(Show show) {
+    public Show saveShow(Show show) {
         return showRepo.save(show);
     }
 }

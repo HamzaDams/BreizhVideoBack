@@ -12,5 +12,7 @@ public interface VillageService {
     Optional<Village> findVillageById(Long id);
     Optional<Village> findByPostalCode(int postalCode);
 
-    Village saveOrUpdate(Village village);
+    Village saveVillage(Village village);
+
+    void deleteVillageById(Long id);
 }

@@ -11,6 +11,7 @@ public interface ShowService {
 
     Optional<Show> findShowById(Long id);
 
-    Show saveOrUpdate(Show show);
+    Show saveShow(Show show);
+
 
 }

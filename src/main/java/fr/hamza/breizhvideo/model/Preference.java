@@ -20,7 +20,7 @@ public class Preference {
     @JsonIdentityReference(alwaysAsId = true)
     private Film film;
 
-    @ManyToOne @JoinColumn(name = "show_id")
+    @ManyToOne @JoinColumn(name = "shows_id")
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     private Show show;

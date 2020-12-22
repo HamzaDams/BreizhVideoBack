@@ -20,6 +20,10 @@ public class VillageServiceImpl implements VillageService {
         this.villageRepo = villageRepo;
     }
 
+    public VillageServiceImpl() {
+        super();
+    }
+
     @Override
     public Collection<Village> getAllVillages() {
         return IteratorUtils.toList(villageRepo.findAll().iterator());
@@ -27,7 +31,7 @@ public class VillageServiceImpl implements VillageService {
 
     @Override
     public Optional<Village> findVillageById(Long id) {
-        return Optional.empty();
+        return villageRepo.findById(id);
     }
 
     @Override
@@ -36,7 +40,12 @@ public class VillageServiceImpl implements VillageService {
     }
 
     @Override
-    public Village saveOrUpdate(Village village) {
+    public Village saveVillage(Village village) {
         return villageRepo.save(village);
+    }
+
+    @Override
+    public void deleteVillageById(Long id) {
+        villageRepo.deleteById(id);
     }
 }

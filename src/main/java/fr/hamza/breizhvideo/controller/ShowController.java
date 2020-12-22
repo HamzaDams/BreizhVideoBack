@@ -25,7 +25,7 @@ public class ShowController {
 
     @PostMapping(value = "/shows")
     public ResponseEntity<Show> saveShow(@RequestBody Show show) {
-        Show showSaved = showService.saveOrUpdate(show);
+        Show showSaved = showService.saveShow(show);
         return new ResponseEntity<Show>(showSaved, HttpStatus.CREATED);
     }
 }
