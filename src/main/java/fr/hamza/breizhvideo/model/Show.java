@@ -20,7 +20,6 @@ public class Show {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
     @Column(name="release_date")
     private String releaseDate;
 

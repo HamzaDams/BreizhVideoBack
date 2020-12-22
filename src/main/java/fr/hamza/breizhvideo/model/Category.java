@@ -1,5 +1,6 @@
 package fr.hamza.breizhvideo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,8 +18,8 @@ public class Category {
 
     private String name;
 
-    @ManyToMany(cascade = CascadeType.DETACH)
-    @JoinTable(name="film_category", joinColumns = @JoinColumn(name="film_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private List<Film> filmCategory;
+    @ManyToMany(mappedBy = "categories")
+    @JsonIgnore
+    private List<Film> films;
 
 }
